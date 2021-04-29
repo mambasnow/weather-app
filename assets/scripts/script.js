@@ -16,6 +16,7 @@ function cityForecast(cityId){
     .then(response => response.json())
     .then(data =>{
         console.log(data);
+        $(".list-group").append(`<li class="list-group-item active">${$("#searchBar").val()}</li>`)
         for(i=0;i<5;i++){
             $("#weatherCardContainer").append(`
             
