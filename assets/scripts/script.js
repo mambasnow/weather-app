@@ -10,7 +10,7 @@ let cityNameEl = $("#cityName");
 
 function cityForecast(cityId){
     
-    let forecastURL = `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${apiKey}`;
+    let forecastURL = `https://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${apiKey}`;
 
     fetch(forecastURL)
     .then(response => response.json())
@@ -36,7 +36,7 @@ function cityForecast(cityId){
 
 function cityWeather(cityName){
 
-    let searchUrl = `http://api.openweathermap.org/data/2.5/weather?q=${$("#searchBar").val()}&appid=${apiKey}`;
+    let searchUrl = `https://api.openweathermap.org/data/2.5/weather?q=${$("#searchBar").val()}&appid=${apiKey}`;
     
     fetch(searchUrl)
     .then(response => response.json())
