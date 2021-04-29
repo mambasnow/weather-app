@@ -32,3 +32,13 @@
     border-radius: 5px;
     padding-left: 2%;
 }
+
+
+#weatherCardContainer{
+    display: flex;
+}
+
+.card{
+    height: 200px;
+    margin-right: 5px;
+}

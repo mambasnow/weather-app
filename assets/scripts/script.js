@@ -8,7 +8,31 @@ let uvEl = $("#uvIndex");
 let cityNameEl = $("#cityName");
 
 
+function cityForecast(cityId){
+    
+    let forecastURL = `http://api.openweathermap.org/data/2.5/forecast?id=${cityId}&appid=${apiKey}`;
 
+    fetch(forecastURL)
+    .then(response => response.json())
+    .then(data =>{
+        console.log(data);
+        for(i=0;i<5;i++){
+            $("#weatherCardContainer").append(`
+            
+            
+            <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="..." alt="Card image cap">
+            <div class="card-body">
+            <p class="card-text">Temp: ${data.list[i+4].main.temp}</p>
+            <p class="card-text">Humidity: ${data.list[i+4].main.humidity}</p>
+            </div>
+            </div>            
+            `);
+        }
+    })
+
+
+}
 
 function cityWeather(cityName){
 
@@ -17,10 +41,13 @@ function cityWeather(cityName){
     fetch(searchUrl)
     .then(response => response.json())
     .then(data =>{ console.log(data);
+    let cityId = data.id;
     cityNameEl.text(data.name);
     humidityEl.text(data.main.humidity);
     tempEl.text(data.main.temp);
     windSpeedEL.text(data.wind.speed + "MPH");
+
+    cityForecast(cityId);
 }
     );
     
